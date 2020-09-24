@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Files</title>
+</head>
+
+<body>
+    <h1>{{.PageTitle}}</h1>
+    <ul>
+        {{range .Files}}
+        <li><a href="/{{ .Path }}">{{.Name}}</a></li>
+        {{end}}
+    </ul>
+</body>
+
+</html>
