@@ -12,6 +12,25 @@
             color: #24292e;
         }
 
+        .breadcrumbs {
+            font-size: 1.25em;
+            padding: 2.5em;
+            padding-bottom: 0;
+        }
+
+        .breadcrumbs>a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .breadcrumbs>a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs>.separator {
+            color: #586069;
+        }
+
         ul {
             font-size: 16;
             padding: 0 2.5em;
@@ -53,8 +72,14 @@
 </head>
 
 <body>
+    <div class="breadcrumbs">
+        {{ range .Breadcrumbs }}
+        <a href="/{{ .Path }}">{{ .Name }}</a>
+        <span class="separator">/</span>
+        {{ end }}
+    </div>
     <ul>
-        {{ range . }}
+        {{ range .Items }}
         <li>
             <div>
                 {{ if .IsDir }}

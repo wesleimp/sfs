@@ -11,8 +11,23 @@
             color: #24292e;
         }
 
-        h2 {
-            margin-bottom: 15px;
+        .breadcrumbs {
+            font-size: 1.25em;
+            padding: 2.5em;
+            padding-bottom: 0;
+        }
+
+        .breadcrumbs>a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .breadcrumbs>a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumbs>.separator {
+            color: #586069;
         }
 
         pre {
@@ -34,8 +49,15 @@
 </head>
 
 <body>
-    <h2>{{ .Name }}</h2>
-    <pre><code>{{ .Content }}</code></pre>
+    <div class="breadcrumbs">
+        {{ range .Breadcrumbs }}
+        <a href="/{{ .Path }}">{{ .Name }}</a>
+        <span class="separator">/</span>
+        {{ end }}
+    </div>
+    <pre>
+        <code>{{ .Content }}</code>
+    </pre>
 </body>
 
 </html>
