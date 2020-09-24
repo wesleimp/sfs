@@ -18,8 +18,9 @@ func GetDir(dir string) ([]Dir, error) {
 
 	for _, f := range files {
 		ff = append(ff, Dir{
-			Name: f.Name(),
-			Path: path.Join(dir, f.Name()),
+			Name:  f.Name(),
+			IsDir: f.IsDir(),
+			Path:  path.Join(dir, f.Name()),
 		})
 	}
 
@@ -33,8 +34,11 @@ func GetContent(file string) (File, error) {
 		return File{}, errors.Wrap(err, "error reading file")
 	}
 
+	name := filepath.Base(file)
+	ext := filepath.Ext(name)
 	f := File{
-		Name:    filepath.Base(file),
+		Name:    name,
+		Ext:     ext,
 		Content: string(bb),
 	}
 

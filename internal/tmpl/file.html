@@ -4,14 +4,39 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>File</title>
+    <title>{{ .Name }} </title>
+    <style>
+        html {
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+            color: #24292e;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 3px solid #f36d33;
+            color: #666;
+            page-break-inside: avoid;
+            font-family: monospace;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 1.6em;
+            max-width: 100%;
+            overflow: auto;
+            padding: 1em 1.5em;
+            display: block;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>{{.Name}}</h1>
-    <pre>
-        {{ .Content }}
-    </pre>
+    <h2>{{ .Name }}</h2>
+    <pre><code>{{ .Content }}</code></pre>
 </body>
 
 </html>
