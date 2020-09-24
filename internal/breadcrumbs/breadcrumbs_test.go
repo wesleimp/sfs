@@ -11,25 +11,30 @@ func TestCreate(t *testing.T) {
 
 	bb := Create("testdata/foo/bar/bazz")
 
-	assert.Equal(4, len(bb))
+	assert.Equal(5, len(bb))
+
+	assert.EqualValues(Breadcrumbs{
+		Name: ".",
+		Path: "",
+	}, bb[0])
 
 	assert.EqualValues(Breadcrumbs{
 		Name: "testdata",
 		Path: "testdata",
-	}, bb[0])
+	}, bb[1])
 
 	assert.EqualValues(Breadcrumbs{
 		Name: "foo",
 		Path: "testdata/foo",
-	}, bb[1])
+	}, bb[2])
 
 	assert.EqualValues(Breadcrumbs{
 		Name: "bar",
 		Path: "testdata/foo/bar",
-	}, bb[2])
+	}, bb[3])
 
 	assert.EqualValues(Breadcrumbs{
 		Name: "bazz",
 		Path: "testdata/foo/bar/bazz",
-	}, bb[3])
+	}, bb[4])
 }
