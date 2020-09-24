@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Files</title>
+    <title>sfs</title>
 </head>
 
 <body>
-    <h1>{{.PageTitle}}</h1>
+    <h1>Dir</h1>
     <ul>
-        {{range .Files}}
+        {{range .}}
         <li><a href="/{{ .Path }}">{{.Name}}</a></li>
         {{end}}
     </ul>
